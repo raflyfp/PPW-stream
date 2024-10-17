@@ -34,9 +34,9 @@ if st.button("Prediksi"):
         st.success(f"**Kategori yang Diprediksi:** {prediction[0]}")
         
         # Opsional: Menampilkan probabilitas prediksi
-        # st.write("**Probabilitas Prediksi:**")
-        # proba_df = pd.DataFrame({
-        #     'Kategori': model.classes_,
-        #     'Probabilitas': prediction_proba[0]
-        # }).sort_values(by='Probabilitas', ascending=False)
-        # st.write(proba_df)
+        st.write("**Probabilitas Prediksi:**")
+        proba_df = pd.DataFrame({
+            'Kategori': model.classes_,
+            'Probabilitas': prediction_proba[0]
+        }).sort_values(by='Probabilitas', ascending=False)
+        st.write(proba_df)
