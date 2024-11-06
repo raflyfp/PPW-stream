@@ -4,3 +4,4 @@ streamlit
 joblib
 seaborn
 matplotlib
+nltk
