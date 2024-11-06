@@ -7,9 +7,13 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 from scipy.spatial.distance import cosine
 import numpy as np
 import nltk
+import os
 
-# Ensure punkt is downloaded
-nltk.download('punkt')
+# Specify NLTK data directory and ensure punkt is downloaded
+nltk_data_dir = os.path.join(os.getcwd(), "nltk_data")
+os.makedirs(nltk_data_dir, exist_ok=True)
+nltk.data.path.append(nltk_data_dir)
+nltk.download('punkt', download_dir=nltk_data_dir)
 
 # Function to clean text
 def cleansing(content):
