@@ -7,13 +7,16 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.tokenize import sent_tokenize, word_tokenize
 from scipy.spatial.distance import cosine
 import numpy as np
-import nltk
 import os
+import nltk
 
-# Check if 'punkt' is downloaded; if not, download it
-nltk_path = os.path.expanduser('~') + '/nltk_data/tokenizers/punkt'
-if not os.path.exists(nltk_path):
+# Ensure necessary NLTK resources are downloaded
+nltk_data_path = os.path.expanduser('~') + '/nltk_data/tokenizers/punkt'
+if not os.path.exists(nltk_data_path):
     nltk.download('punkt')
+
+# The rest of your code...
+
 
 # Function to clean text
 def cleansing(content):
