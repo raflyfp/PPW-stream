@@ -1,3 +1,4 @@
+# streamlit_app.py
 import streamlit as st
 import pandas as pd
 import re
@@ -9,11 +10,10 @@ import numpy as np
 import nltk
 import os
 
-# Specify NLTK data directory and ensure punkt is downloaded
-nltk_data_dir = os.path.join(os.getcwd(), "nltk_data")
-os.makedirs(nltk_data_dir, exist_ok=True)
-nltk.data.path.append(nltk_data_dir)
-nltk.download('punkt', download_dir=nltk_data_dir)
+# Check if 'punkt' is downloaded; if not, download it
+nltk_path = os.path.expanduser('~') + '/nltk_data/tokenizers/punkt'
+if not os.path.exists(nltk_path):
+    nltk.download('punkt')
 
 # Function to clean text
 def cleansing(content):
@@ -32,7 +32,7 @@ def summarize_document(melted_tfidf, num_sentences=3):
     summary_sentences = top_sentences.index.tolist()
     return summary_sentences
 
-# Streamlit app
+# Streamlit app interface
 st.title("Ringkasan Dokumen")
 st.write("Upload a document, and choose the number of sentences for summary.")
 
