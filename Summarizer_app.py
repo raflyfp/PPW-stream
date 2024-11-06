@@ -12,7 +12,7 @@ import nltk
 
 # Force download the punkt tokenizer
 nltk.download('punkt')
-
+nltk.download('punkt_tab')
 
 # Function to clean text
 def cleansing(content):
