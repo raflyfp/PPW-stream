@@ -8,6 +8,9 @@ from sklearn.model_selection import train_test_split
 # Membaca dataset
 df = pd.read_csv("preprocessing-kompas.csv")
 
+# Pastikan tidak ada nilai NaN pada kolom 'stopword_removal'
+df['stopword_removal'] = df['stopword_removal'].fillna('')
+
 # Mengonversi Data Teks ke TF-IDF
 vectorizer = TfidfVectorizer(norm='l2')
 tfidf_matrix = vectorizer.fit_transform(df['stopword_removal'])
