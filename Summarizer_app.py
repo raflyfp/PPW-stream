@@ -11,12 +11,10 @@ import os
 import nltk
 
 # Ensure necessary NLTK resources are downloaded
-nltk_data_path = os.path.expanduser('~') + '/nltk_data/tokenizers/punkt'
-if not os.path.exists(nltk_data_path):
-    nltk.download('punkt')
-
-# The rest of your code...
-
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')  # Downloads the 'punkt' tokenizer data if not already present
 
 # Function to clean text
 def cleansing(content):
