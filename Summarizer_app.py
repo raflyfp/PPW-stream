@@ -10,11 +10,9 @@ import numpy as np
 import os
 import nltk
 
-# Ensure necessary NLTK resources are downloaded
-try:
-    nltk.data.find('tokenizers/punkt')
-except LookupError:
-    nltk.download('punkt')  # Downloads the 'punkt' tokenizer data if not already present
+# Force download the punkt tokenizer
+nltk.download('punkt')
+
 
 # Function to clean text
 def cleansing(content):
