@@ -8,7 +8,7 @@ from scipy.spatial.distance import cosine
 import numpy as np
 import nltk
 
-# Download required nltk data
+# Ensure punkt is downloaded
 nltk.download('punkt')
 
 # Function to clean text
